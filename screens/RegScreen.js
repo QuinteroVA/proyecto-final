@@ -12,12 +12,11 @@ export default function RegScreen({ navigation }) {
   const [edad, setEdad] = useState("")
   const [email, setEmail] = useState("")
   const [error, setError] = useState("")
-  const Login = () => {
+  const Login1 = () => {
     if (!username || !password || !edad || !email ) {
       setError(mensaje); navigation.navigate('Registrarse')
-    } else
-           setError(""); navigation.navigate('Login')
-  }
+      } else {setError(mensaje2); navigation.navigate('Login')}
+    } 
   return (
     <View style={styles.container}>
       <View>
@@ -57,7 +56,8 @@ export default function RegScreen({ navigation }) {
           onChangeText={(text) => setPassword(text)}
           
         />
-        <TouchableOpacity style={styles.btn1} onPress={Login}>
+        {error ? <Text style={styles.errorText}>{error}</Text> : null}
+        <TouchableOpacity style={styles.btn1} onPress={Login1}>
           <AntDesign name="login" size={24} style={styles.icon} />
           <Text style={styles.txt2}>Registrarse</Text>
         </TouchableOpacity>
