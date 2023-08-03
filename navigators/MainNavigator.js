@@ -61,7 +61,7 @@ function MyStack(){
 export default function MainNavigation() {
     return (
         <NavigationContainer>
-            <MyTabs/>
+            <MyStack/>
         </NavigationContainer>
     )
 }
