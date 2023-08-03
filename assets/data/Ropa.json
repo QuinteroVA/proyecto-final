@@ -1,0 +1,64 @@
+{
+  "productos": [
+    {
+      "nombre": "Camiseta básica",
+      "descripcion": "Una camiseta de algodón suave y cómoda.",
+      "precio": 15.99,
+      "imagen": "https://ejemplo.com/camiseta.jpg"
+    },
+    {
+      "nombre": "Pantalones vaqueros",
+      "descripcion": "Vaqueros clásicos de corte recto.",
+      "precio": 39.99,
+      "imagen": "https://ejemplo.com/pantalones.jpg"
+    },
+    {
+      "nombre": "Vestido de verano",
+      "descripcion": "Vestido ligero y colorido para los días soleados.",
+      "precio": 29.99,
+      "imagen": "https://ejemplo.com/vestido.jpg"
+    },
+    {
+      "nombre": "Chaqueta de cuero",
+      "descripcion": "Chaqueta de cuero genuino con estilo.",
+      "precio": 79.99,
+      "imagen": "https://ejemplo.com/chaqueta.jpg"
+    },
+    {
+      "nombre": "Zapatillas deportivas",
+      "descripcion": "Zapatillas cómodas y modernas para el entrenamiento.",
+      "precio": 49.99,
+      "imagen": "https://ejemplo.com/zapatillas.jpg"
+    },
+    {
+      "nombre": "Bufanda de lana",
+      "descripcion": "Bufanda suave y abrigada para el invierno.",
+      "precio": 19.99,
+      "imagen": "https://ejemplo.com/bufanda.jpg"
+    },
+    {
+      "nombre": "Sombrero de ala ancha",
+      "descripcion": "Sombrero elegante para protegerte del sol.",
+      "precio": 24.99,
+      "imagen": "https://ejemplo.com/sombrero.jpg"
+    },
+    {
+      "nombre": "Calcetines estampados",
+      "descripcion": "Calcetines con diseños divertidos y coloridos.",
+      "precio": 9.99,
+      "imagen": "https://ejemplo.com/calcetines.jpg"
+    },
+    {
+      "nombre": "Blusa elegante",
+      "descripcion": "Blusa formal para ocasiones especiales.",
+      "precio": 34.99,
+      "imagen": "https://ejemplo.com/blusa.jpg"
+    },
+    {
+      "nombre": "Shorts deportivos",
+      "descripcion": "Shorts cómodos para actividades físicas.",
+      "precio": 18.99,
+      "imagen": "https://ejemplo.com/shorts.jpg"
+    }
+  ]
+}
