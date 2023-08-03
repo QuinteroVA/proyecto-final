@@ -9,7 +9,7 @@ import {
 import React from "react";
 
 export default function Targeta(props) {
-  console.log(props.datos.nombre);
+  //console.log(props.datos.nombre);
   return (
     <View style={styles.container}>
       <TouchableOpacity>
@@ -21,10 +21,10 @@ export default function Targeta(props) {
           />
           
         </View>
-        <Text style={styles.title}>{props.datos.nombre} </Text>
+        <Text style={styles.titulo}>{props.datos.nombre} </Text>
         <View>
         <Text style={styles.description}>{props.datos.descripcion}</Text>
-        <Text style={styles.price}>Precio:${props.datos.precio}</Text>
+        <Text style={styles.precio}>Precio:${props.datos.precio}</Text>
         </View>  
       </TouchableOpacity>
     </View>
@@ -47,13 +47,13 @@ const styles = StyleSheet.create({
     imageContainer: {
       alignItems: "center",
     },
-    title: {
+    titulo: {
       fontSize: 18,
       textAlign: "center",
       marginTop: 10,
       paddingHorizontal: 10,
     },
-    descriptionContainer: {
+    descripcionContainer: {
       marginTop: 10,
       alignItems: "center",
     },
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
       fontSize: 14,
       textAlign: "center",
     },
-    price: {
+    precio: {
       fontSize: 16,
       fontWeight: "bold",
       marginTop: 5,

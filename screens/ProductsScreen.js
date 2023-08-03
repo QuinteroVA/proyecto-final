@@ -6,7 +6,10 @@ import Targeta from '../components/Targeta'
 export default function ProductsScreen() {
   return (
     <View>
-      <Text>MODA</Text>
+       <Text></Text>
+       <Text></Text>
+      <Text></Text>
+      <Text style={[styles.titulo,{color:'#b05e9ac2'}]}>MODA</Text>
       <FlatList
       data={RopaJSON.productos}
       
@@ -22,7 +25,15 @@ export default function ProductsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    paddingHorizontal: 10,
+    paddingTop: 24,
+    backgroundColor: '#f4f4f4',
+  },
+  titulo: {
+    fontSize: 34,
+    fontWeight: 'bold',
+    marginBottom: 10,
+    textAlign: 'center',
+    
   },
 });
