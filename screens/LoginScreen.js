@@ -39,7 +39,6 @@ export default function LoginScreen({ navigation }) {
           onChangeText={(text) => setPassword(text)}
         />
         {error ? <Text style={styles.errorText}>{error}</Text> : null}
-
         <TouchableOpacity style={styles.btn1} onPress={Login}>
           <AntDesign name="login" size={24} style={styles.icon} />
           <Text style={styles.txt2}>Iniciar Sesión</Text>
@@ -52,7 +51,6 @@ export default function LoginScreen({ navigation }) {
       <View style={styles.line}></View>
       <Text style={styles.txtPass}>Inicia Sesión con...</Text>
       <View style={styles.lowerSection}>
-
         <TouchableOpacity onPress={() => Linking.openURL('https://www.facebook.com/')}>
           <Image source={{ uri: ("https://drive.google.com/uc?export=view&id=1a3pwV3O2xdcgeKAw88TVcwqMriQmpWmR") }} style={styles.socialIcon} />
         </TouchableOpacity>
