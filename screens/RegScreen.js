@@ -1,7 +1,6 @@
 import { View, Text, TextInput, StyleSheet, Image, TouchableOpacity, Alert, Linking } from 'react-native';
 import React, { useState } from "react";
 import { AntDesign } from '@expo/vector-icons';
-
 export default function RegScreen({ navigation }) {
   function navegar() { navigation.navigate("Registrarse") }
   const mensaje = () => { Alert.alert('Mensaje', 'Llene todos los campos') }

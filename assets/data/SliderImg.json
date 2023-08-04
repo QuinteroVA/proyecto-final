@@ -1,19 +1,24 @@
 {
   "imagenes": [
     {
-      "url":"https://drive.google.com/uc?export=view&id=1QARNnD8psBir8pdzVNiDOwYt3mhf7mr8"
+      "url":"https://drive.google.com/uc?export=view&id=1QARNnD8psBir8pdzVNiDOwYt3mhf7mr8",
+      "des":"Camisetas"
     },
     {
-      "url": "https://drive.google.com/uc?export=view&id=1UNA5TaAADnM0ZJw1jSXULmQf6qX_QXbo"
+      "url": "https://drive.google.com/uc?export=view&id=1UNA5TaAADnM0ZJw1jSXULmQf6qX_QXbo",
+      "des":"Pantalones"
     },
     {
-      "url": "https://drive.google.com/uc?export=view&id=1bhriP_dE3Y6zXhuI6ocEnava74s6_VKk"
+      "url": "https://drive.google.com/uc?export=view&id=1bhriP_dE3Y6zXhuI6ocEnava74s6_VKk",
+      "des":"Vertidos"
     },
     {
-      "url": "https://drive.google.com/uc?export=view&id=1l5zZUTjNWxaWJthRIntrm2f9HfxQLrn-"
+      "url": "https://drive.google.com/uc?export=view&id=1l5zZUTjNWxaWJthRIntrm2f9HfxQLrn-",
+      "des":"Chaquetas"
     },
     {
-      "url": "https://drive.google.com/uc?export=view&id=1fgTbNgF2fNbfCPd29JnwWWJsTYrw4tFR"
+      "url": "https://drive.google.com/uc?export=view&id=1fgTbNgF2fNbfCPd29JnwWWJsTYrw4tFR",
+      "des":"Calzado"
     }
   ]
 }
