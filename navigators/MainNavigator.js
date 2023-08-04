@@ -10,7 +10,7 @@ import ProductsScreen from "../screens/ProductsScreen";
 import CarritoScreen from "../screens/CarritoScreen";
 import HomeScreen from "../screens/HomeScreen"
 //iconos
-import { Feather } from '@expo/vector-icons';
+
 
 //iconos
 
