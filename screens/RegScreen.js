@@ -5,7 +5,6 @@ export default function RegScreen({ navigation }) {
   function navegar() { navigation.navigate("Registrarse") }
   const mensaje = () => { Alert.alert('Mensaje', 'Llene todos los campos') }
   const mensaje2 = () => { Alert.alert('Mensaje', 'Usuario registrado con éxito') }
-  const mensaje3 = () => { Alert.alert('Mensaje', 'Olvidaste la contraseña') }
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [edad, setEdad] = useState("")

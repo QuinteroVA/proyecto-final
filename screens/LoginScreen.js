@@ -34,13 +34,13 @@ export default function LoginScreen({ navigation }) {
           onChangeText={(texto) => setUsuario(texto)}
           value={usuario}
         />
+         {error ? <Text style={styles.errorText}>{error}</Text> : null}
         <TextInput style={styles.input}
           placeholder="Contraseña"
           secureTextEntry
           onChangeText={(texto) => setContrasena(texto)}
           value={contrasena}
         />
-
         <TouchableOpacity style={styles.btn1} onPress={Login}>
           <AntDesign name="login" size={24} style={styles.icon} />
           <Text style={styles.txt2}>Iniciar Sesión</Text>
