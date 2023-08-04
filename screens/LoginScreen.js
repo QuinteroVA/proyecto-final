@@ -21,7 +21,7 @@ export default function LoginScreen({ navigation }) {
     <View style={styles.container}>
       <View>
         <Text style={styles.txt1}>Iniciar Sesión</Text>
-        <Image source={{ uri: ("https://drive.google.com/uc?export=view&id=1_60IjHQDosiyzTl05YyB5VvxXHgiHKl_") }}
+        <Image source={{ uri: ("https://drive.google.com/uc?export=view&id=1_60IjHQDosiyzTl05YyB5VvxXHgiHKl_")}}
           style={styles.img} />
         <Text style={styles.txt1}>Store Dress</Text>
       </View>
@@ -43,7 +43,6 @@ export default function LoginScreen({ navigation }) {
           <AntDesign name="login" size={24} style={styles.icon} />
           <Text style={styles.txt2}>Iniciar Sesión</Text>
         </TouchableOpacity>
-
         <TouchableOpacity onPress={mensaje3}>
           <Text style={styles.txtPass}>¿Olvidaste tu contraseña?</Text>
         </TouchableOpacity>

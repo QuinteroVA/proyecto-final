@@ -32,7 +32,6 @@ export default function RegScreen({ navigation }) {
           keyboardType='email-address'
           value={email}
           onChangeText={(text) => setEmail(text)}
-          
         />
         <TextInput
           style={styles.input}
@@ -54,7 +53,6 @@ export default function RegScreen({ navigation }) {
           secureTextEntry
           value={password}
           onChangeText={(text) => setPassword(text)}
-          
         />
         {error ? <Text style={styles.errorText}>{error}</Text> : null}
         <TouchableOpacity style={styles.btn1} onPress={Login1}>
@@ -151,7 +149,6 @@ const styles = StyleSheet.create({
   line: {
     borderWidth: 1,
     width: '70%',
-
     borderColor: '#0068f0'
   },
   socialIcon: {

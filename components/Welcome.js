@@ -1,9 +1,7 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity, Icon } from 'react-native'
 import React from 'react'
-
 import { AntDesign } from '@expo/vector-icons';
 import { SimpleLineIcons } from '@expo/vector-icons'; 
-
 export default function Welcome({navigation}) {
     return (
         <View>
@@ -17,7 +15,6 @@ export default function Welcome({navigation}) {
             <TouchableOpacity style={styles.btn1} onPress={() => navigation.navigate('Registrarse')}>
                 <SimpleLineIcons name="note" size={24} style={styles.icon}/>
                 <Text style={styles.txt2}>Registrarse</Text></TouchableOpacity>
-
         </View>
     )
 }
