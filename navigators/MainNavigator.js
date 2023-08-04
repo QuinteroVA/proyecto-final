@@ -22,6 +22,8 @@ import { Feather } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
+
+
 function MyTabs() {
 <<<<<<< HEAD
   return (
@@ -72,7 +74,7 @@ function MyTabs() {
               name="account-circle"
               size={24}
               color="#000000ff"
-            />
+d            />
           ),
         }}
       />
