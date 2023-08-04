@@ -36,7 +36,6 @@ export default function LoginScreen({ navigation }) {
             <Image source={{ uri: ("https://drive.google.com/uc?export=view&id=1GlWI_rqcn67lainGYkgx-FX9Xnouidx_") }}
               style={styles.img2} /><Text style={styles.txt2}>Descuentos</Text>
           </TouchableOpacity>
-       
       </View>
     </View>
   )

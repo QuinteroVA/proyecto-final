@@ -1,7 +1,6 @@
 import { View, Text, TextInput, StyleSheet, Image, TouchableOpacity, Alert, Linking } from 'react-native';
 import React, { useState } from "react";
 import { AntDesign } from '@expo/vector-icons';
-
 export default function RegScreen({ navigation }) {
   function navegar() { navigation.navigate("Registrarse") }
   const mensaje = () => { Alert.alert('Mensaje', 'Llene todos los campos') }
@@ -53,7 +52,6 @@ export default function RegScreen({ navigation }) {
           secureTextEntry
           value={password}
           onChangeText={(text) => setPassword(text)}
-          
         />
         {error ? <Text style={styles.errorText}>{error}</Text> : null}
         <TouchableOpacity style={styles.btn1} onPress={Login1}>

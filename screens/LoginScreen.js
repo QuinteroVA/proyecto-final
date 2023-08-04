@@ -45,7 +45,6 @@ export default function LoginScreen({ navigation }) {
           <AntDesign name="login" size={24} style={styles.icon} />
           <Text style={styles.txt2}>Iniciar Sesión</Text>
         </TouchableOpacity>
-
         <TouchableOpacity onPress={mensaje3}>
           <Text style={styles.txtPass}>¿Olvidaste tu contraseña?</Text>
         </TouchableOpacity>
