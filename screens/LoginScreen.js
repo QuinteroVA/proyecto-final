@@ -40,7 +40,7 @@ export default function LoginScreen({ navigation }) {
           onChangeText={(texto) => setContrasena(texto)}
           value={contrasena}
         />
-         {error ? <Text style={styles.errorText}>{error}</Text> : null}
+
         <TouchableOpacity style={styles.btn1} onPress={Login}>
           <AntDesign name="login" size={24} style={styles.icon} />
           <Text style={styles.txt2}>Iniciar Sesión</Text>
