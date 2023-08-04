@@ -11,7 +11,15 @@ import CarritoScreen from "../screens/CarritoScreen";
 import HomeScreen from "../screens/HomeScreen"
 //iconos
 import { Feather } from '@expo/vector-icons';
+<<<<<<< HEAD
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+=======
+
+//iconos
+
+import { Feather } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+>>>>>>> e476e557291a44968f677e9ac1abfe14a0dc6d0c
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
 function MyTabs() {
