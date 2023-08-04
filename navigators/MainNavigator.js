@@ -8,7 +8,13 @@ import RegScreen from "../screens/RegScreen";
 import CuentaScreen from "../screens/CuentaScreen";
 import ProductsScreen from "../screens/ProductsScreen";
 import CarritoScreen from "../screens/CarritoScreen";
+<<<<<<< HEAD
 import HomeScreen from "../screens/HomeScreen";
+=======
+import HomeScreen from "../screens/HomeScreen"
+//iconos
+import { Feather } from '@expo/vector-icons';
+>>>>>>> quintero
 
 //iconos
 
@@ -17,6 +23,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
 function MyTabs() {
+<<<<<<< HEAD
   return (
     <Tab.Navigator>
       <Tab.Screen
@@ -74,6 +81,28 @@ function MyTabs() {
 
     </Tab.Navigator>
   );
+=======
+    return (
+        <Tab.Navigator>
+            <Tab.Screen name="Inicio" component={HomeScreen} options={{
+                tabBarIcon: () => (
+                    <Feather name="home" size={30} color={'#040b04fd'} />)
+            }} />
+            <Tab.Screen name="Productos" component={ProductsScreen} options={{
+                tabBarIcon: () => (
+                    <MaterialCommunityIcons name="propane-tank" size={24} color="black" />)
+            }} />
+            <Tab.Screen name="Carrito" component={CarritoScreen} options={{
+                tabBarIcon: () => (
+                    <MaterialCommunityIcons name="shopping-search" size={24} color="black" />)
+            }} />
+            <Tab.Screen name="Mi Cuenta" component={CuentaScreen} options={{
+                tabBarIcon: () => (
+                    <MaterialCommunityIcons name="account-circle" size={24} color='#000000ff' />)
+            }} />
+        </Tab.Navigator>
+    )
+>>>>>>> quintero
 }
 
 function MyStack() {
