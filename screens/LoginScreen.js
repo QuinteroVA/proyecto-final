@@ -1,19 +1,21 @@
 import { View, Text, TextInput, StyleSheet, Image, TouchableOpacity, Alert, Linking } from 'react-native';
 import React, { useState } from "react";
 import { AntDesign } from '@expo/vector-icons';
+import userJSON from '../assets/data/users.json';
 export default function LoginScreen({ navigation }) {
   function navegar() { navigation.navigate("Home") }
   const mensaje = () => { Alert.alert('Mensaje', 'Ingresa Usuario y contraseña') }
   const mensaje2 = () => { Alert.alert('Mensaje', 'Usuario y/o contraseña incorrectos') }
   const mensaje3 = () => { Alert.alert('Mensaje', 'Olvidaste la contraseña') }
-  const [username, setUsername] = useState("")
-  const [password, setPassword] = useState("")
+  const [usuario, setUsuario] = useState("")
+  const [contrasena, setContrasena] = useState("")
   const [error, setError] = useState("")
   const Login = () => {
-    if (!username || !password) {
+    const buscarUsuarios= userJSON.users.find(user => user.username === usuario && user.password === contrasena);
+    if (!usuario || !contrasena) {
       setError(mensaje)
     } else
-      if (username !== "Nino" || password !== "N123") {
+      if (!buscarUsuarios) {
         setError(mensaje2)
       } else { setError(""); navigation.navigate('Home') }
   }
@@ -21,7 +23,7 @@ export default function LoginScreen({ navigation }) {
     <View style={styles.container}>
       <View>
         <Text style={styles.txt1}>Iniciar Sesión</Text>
-        <Image source={{ uri: ("https://drive.google.com/uc?export=view&id=1_60IjHQDosiyzTl05YyB5VvxXHgiHKl_") }}
+        <Image source={{ uri: ("https://drive.google.com/uc?export=view&id=1_60IjHQDosiyzTl05YyB5VvxXHgiHKl_")}}
           style={styles.img} />
         <Text style={styles.txt1}>Store Dress</Text>
       </View>
@@ -29,16 +31,16 @@ export default function LoginScreen({ navigation }) {
         <TextInput style={styles.input}
           placeholder="E-mail/Usuario"
           keyboardType='email-address'
-          value={username}
-          onChangeText={(text) => setUsername(text)}
+          onChangeText={(texto) => setUsuario(texto)}
+          value={usuario}
         />
         <TextInput style={styles.input}
           placeholder="Contraseña"
           secureTextEntry
-          value={password}
-          onChangeText={(text) => setPassword(text)}
+          onChangeText={(texto) => setContrasena(texto)}
+          value={contrasena}
         />
-        {error ? <Text style={styles.errorText}>{error}</Text> : null}
+
         <TouchableOpacity style={styles.btn1} onPress={Login}>
           <AntDesign name="login" size={24} style={styles.icon} />
           <Text style={styles.txt2}>Iniciar Sesión</Text>

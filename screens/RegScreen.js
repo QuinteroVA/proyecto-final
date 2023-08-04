@@ -32,7 +32,6 @@ export default function RegScreen({ navigation }) {
           keyboardType='email-address'
           value={email}
           onChangeText={(text) => setEmail(text)}
-          
         />
         <TextInput
           style={styles.input}

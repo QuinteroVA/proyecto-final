@@ -7,7 +7,8 @@ import LoginScreen from "../screens/LoginScreen";
 import RegScreen from "../screens/RegScreen";
 import CuentaScreen from "../screens/CuentaScreen";
 import ProductsScreen from "../screens/ProductsScreen";
-import CarritoScreen from "../screens/CarritoScreen"
+import CarritoScreen from "../screens/CarritoScreen";
+import HomeScreen from "../screens/HomeScreen"
 //iconos
 import { Feather } from '@expo/vector-icons';
 
@@ -17,12 +18,10 @@ const Stack = createStackNavigator();
 function MyTabs() {
     return (
         <Tab.Navigator>
-            <Tab.Screen name="Inicio" component={WelcomeScreen} options={{
-
+            <Tab.Screen name="Inicio" component={HomeScreen} options={{
                 tabBarIcon: () => (
                     <Feather name="home" size={30} color={'#040b04fd'} />)
             }} />
-
             <Tab.Screen name="Productos" component={ProductsScreen} options={{
                 tabBarIcon: () => (
                     <MaterialCommunityIcons name="propane-tank" size={24} color="black" />)

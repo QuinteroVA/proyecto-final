@@ -4,61 +4,61 @@
       "nombre": "Camiseta básica",
       "descripcion": "Una camiseta de algodón suave y cómoda.",
       "precio": 15.99,
-      "imagen": "data:image/jpeg;base64,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"
+      "imagen":"https://drive.google.com/uc?export=view&id=1QARNnD8psBir8pdzVNiDOwYt3mhf7mr8"
     },
     {
       "nombre": "Pantalones vaqueros",
       "descripcion": "Vaqueros clásicos de corte recto.",
       "precio": 39.99,
-      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRICFPTrs4inWh_zupTXz19VM7D8kN6DknllQ"
+      "imagen": "https://drive.google.com/uc?export=view&id=1UNA5TaAADnM0ZJw1jSXULmQf6qX_QXbo"
     },
     {
       "nombre": "Vestido de verano",
       "descripcion": "Vestido ligero y colorido para los días soleados.",
       "precio": 29.99,
-      "imagen": "https://img.freepik.com/foto-gratis/moda-mujer-ropa_1203-8302.jpg?size=626&ext=jpg"
+      "imagen": "https://drive.google.com/uc?export=view&id=1bhriP_dE3Y6zXhuI6ocEnava74s6_VKk"
     },
     {
       "nombre": "Chaqueta de cuero",
       "descripcion": "Chaqueta de cuero genuino con estilo.",
       "precio": 79.99,
-      "imagen": "https://img.freepik.com/foto-gratis/representacion-bodegones-exhibicion-chaquetas_23-2149745033.jpg?size=626&ext=jpg"
+      "imagen": "https://drive.google.com/uc?export=view&id=1l5zZUTjNWxaWJthRIntrm2f9HfxQLrn-"
     },
     {
       "nombre": "Zapatillas deportivas",
       "descripcion": "Zapatillas cómodas y modernas para el entrenamiento.",
       "precio": 49.99,
-      "imagen": "https://img.freepik.com/foto-gratis/composicion-moderna-deporte-elementos-gimnasio_23-2147915649.jpg?size=626&ext=jpg"
+      "imagen": "https://drive.google.com/uc?export=view&id=1fgTbNgF2fNbfCPd29JnwWWJsTYrw4tFR"
     },
     {
       "nombre": "Bufanda de lana",
       "descripcion": "Bufanda suave y abrigada para el invierno.",
       "precio": 19.99,
-      "imagen": "https://img.freepik.com/foto-gratis/bufanda-roja-invierno-aislada-contra-fondo-blanco_1101-2380.jpg?size=626&ext=jpg"
+      "imagen": "https://drive.google.com/uc?export=view&id=1gtD2kqX75Fat0YV4dCHgNdCTOVSkN3NW"
     },
     {
       "nombre": "Sombrero de ala ancha",
       "descripcion": "Sombrero elegante para protegerte del sol.",
       "precio": 24.99,
-      "imagen": "https://img.freepik.com/foto-gratis/accesorios-verano-mesa-madera_23-2147836780.jpg?size=626&ext=jpg"
+      "imagen": "https://drive.google.com/uc?export=view&id=1t5m3y05CSZozvqNKnlVLA2FALHQKNVin"
     },
     {
       "nombre": "Calcetines estampados",
       "descripcion": "Calcetines con diseños divertidos y coloridos.",
       "precio": 9.99,
-      "imagen": "https://img.freepik.com/foto-gratis/calcetines-rayado-lindo-fondo-dos_1203-6393.jpg?w=360&t=st=1691041821~exp=1691042421~hmac=8e5ecaa550553c28c9c204f947c366d5d94f428a67f638df97ef6caadb1d625c"
+      "imagen": "https://drive.google.com/uc?export=view&id=1Nta4STuAOSQHPCkbBrwP2002b79tRarL"
     },
     {
       "nombre": "Blusa elegante",
       "descripcion": "Blusa formal para ocasiones especiales.",
       "precio": 34.99,
-      "imagen": "https://as2.ftcdn.net/v2/jpg/03/91/88/81/1000_F_391888149_s1fulqlvPOdGtHQATwH2w8WKQy5mlqIT.jpg"
+      "imagen": "https://drive.google.com/uc?export=view&id=1MRYsRjroB-xG8Ubg7hKFJDqD8uGTpdNc"
     },
     {
       "nombre": "Shorts deportivos",
       "descripcion": "Shorts cómodos para actividades físicas.",
       "precio": 18.99,
-      "imagen": "https://img.freepik.com/fotos-premium/pantalones-cortos-deportivos-aislados-blanco_719385-152.jpg?size=626&ext=jpg"
+      "imagen": "https://drive.google.com/uc?export=view&id=1vS5faSD_bMOTobN7CdPGZUHIFJpW7F5u"
     }
   ]
 }
