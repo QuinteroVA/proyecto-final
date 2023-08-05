@@ -9,9 +9,11 @@ import CuentaScreen from "../screens/CuentaScreen";
 import ProductsScreen from "../screens/ProductsScreen";
 import CarritoScreen from "../screens/CarritoScreen";
 import HomeScreen from "../screens/HomeScreen"
+
 //iconos
-import { Feather } from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+
+import { Feather } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
 function MyTabs() {
