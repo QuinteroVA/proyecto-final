@@ -1,8 +1,17 @@
 import { View, Text, Image, StyleSheet, TouchableOpacity, Alert, Button } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 export default function Carrito(props) {
-    const mensaje = () => {
-        Alert.alert("Producto", "Se Agregado  el producto")
+    const [num1, setnum1] = useState(0)
+    function aumentar() {
+        if (num1 < 10) {
+            setnum1(num1 + 1);
+        } else
+            Alert.alert('Advertencia', 'No se permite seleccionar más de 10 productos iguales')
+    }
+    function disminur() {
+        if (num1 > 0) {
+            setnum1(num1 - 1);
+        }
     }
     return (
         <View style={styles.container}>
@@ -17,11 +26,15 @@ export default function Carrito(props) {
                 <View style={styles.infoTextContainer}>
                     <Text style={styles.titulo}>{props.datos.nombre} </Text>
                     <Text style={styles.description}>{props.datos.descripcion}</Text>
-                    <Text style={styles.precio}>Precio: ${props.datos.precio}</Text>
+                    <Text style={styles.price}>Precio: ${props.datos.precio}</Text>
                 </View>
-                <View style={styles.buttonsContainer}>
-                    <Button title="-" onPress={mensaje} />
-                    <Button title="+" onPress={mensaje} />
+                <View style={{ alignItems: 'center' }}>
+                    <Text style={styles.items}>{num1}</Text>
+                    <View style={styles.buttonsContainer}>
+                        <Button title="-" onPress={() => disminur()} />
+                        <Text> </Text>
+                        <Button title="+" onPress={() => aumentar()} />
+                    </View>
                 </View>
             </View>
         </View>
@@ -55,9 +68,16 @@ const styles = StyleSheet.create({
     description: {
         fontSize: 14,
     },
-    precio: {
+    price: {
         fontSize: 14,
         fontWeight: "bold",
+    },
+    items: {
+        fontSize: 18,
+        borderWidth: 1,
+        borderColor: '#0068f0',
+        borderRadius: 5,
+        paddingHorizontal:19
     },
     imagen: {
         width: 100,
@@ -77,6 +97,8 @@ const styles = StyleSheet.create({
     },
     buttonsContainer: {
         flexDirection: "row",
+        marginBottom:0,
+        paddingTop:3,
 
     },
 });

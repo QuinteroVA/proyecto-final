@@ -3,6 +3,7 @@ import React from 'react'
 import RopaJSON from "../assets/data/Ropa.json"
 import Carrito from '../components/Carrito'
 export default function ProductsScreen() {
+  
   return (
     <View style={styles.container}>
       <Text style={[styles.titulo,{color:'#b05e9ac2'}]}>Carrito de Compras</Text>
