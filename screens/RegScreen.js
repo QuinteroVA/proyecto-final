@@ -148,6 +148,7 @@ const styles = StyleSheet.create({
   line: {
     borderWidth: 1,
     width: '70%',
+
     borderColor: '#0068f0'
   },
   socialIcon: {
