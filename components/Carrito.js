@@ -31,7 +31,7 @@ export default function Carrito(props) {
             <TouchableOpacity style={styles.btn1} onPress={() => disminur()}>
               <Feather name="minus" size={15} style={styles.icon} />
             </TouchableOpacity>
-            <Text></Text>
+
             <TouchableOpacity style={styles.btn1} onPress={() => aumentar()}>
               <Feather name="plus" size={15} style={styles.icon} />
             </TouchableOpacity>
