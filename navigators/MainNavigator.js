@@ -9,8 +9,6 @@ import CuentaScreen from "../screens/CuentaScreen";
 import ProductsScreen from "../screens/ProductsScreen";
 import CarritoScreen from "../screens/CarritoScreen";
 import HomeScreen from "../screens/HomeScreen"
-//iconos
-
 
 //iconos
 
