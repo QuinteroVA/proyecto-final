@@ -1,15 +1,17 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet,TouchableOpacity} from "react-native";
 import React from "react";
 //  icono s
-import Icon from "react-native-vector-icons/FontAwesome";
-import { AntDesign } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { Fontisto } from "@expo/vector-icons";
+import Icon from "react-native-vector-icons/FontAwesome";
 import { SimpleLineIcons } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
+import { Fontisto } from "@expo/vector-icons";
+import { Entypo } from '@expo/vector-icons'; 
 
-export default function CuentaScreen({ usuario }) {
+export default function CuentaScreen({ usuario,navigation }) {
   const nombre = usuario?.nombre || "Nino";
-  const correo = usuario?.correo || "AQUINTERO@hotmail.com";
+  const correo = usuario?.correo || "angel.quintero@micorreo.com";
+  const mensaje = () => { Alert.alert('Mensaje', 'Sesión Finalizada') }
 
   return (
     <View style={styles.container}>
@@ -76,11 +78,11 @@ export default function CuentaScreen({ usuario }) {
               <Icon name="film" size={30} color="black" />
               <Text style={styles.iconTexto}>targeta</Text>
             </View>
-            <View style={styles.iconTextContainer}>
+            <View>
               <AntDesign name="mail" size={30} color="black" />
               <Text style={styles.iconTexto}>cupones</Text>
             </View>
-            <View style={styles.iconTextContainer}>
+            <View>
               <AntDesign name="tago" size={30} color="black" />
               <Text style={styles.iconTexto}>pases</Text>
             </View>
@@ -114,6 +116,13 @@ export default function CuentaScreen({ usuario }) {
             </View>
           </View>
         </View>
+      </View>
+      <View style={styles.line}></View>
+      <View style={styles.lowerSection}>
+        <TouchableOpacity style={styles.btn1} onPress={() => navigation.navigate('Welcome')}>
+          <Entypo name="log-out" size={24} style={styles.icon}/>
+          <Text style={styles.txt2}>Cerrar Sesión</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -169,4 +178,36 @@ const styles = StyleSheet.create({
     width: "100%",
     marginTop: 10,
   },
+  lowerSection: {
+    borderRadius: 15,
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  btn1: {
+    margin: 10,
+    padding: 10,
+    elevation: 5,
+    borderRadius: 18,
+    shadowColor: 'gray',
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#0068f0',
+  },
+  txt2: {
+    fontSize: 17,
+    color: 'white',
+    textAlign: 'center',
+    justifyContent: 'space-between'
+  },
+  line: {
+    width: '96%',
+    marginTop: 10,
+    borderWidth: 1,
+    marginBottom: 10,
+    borderColor: '#0068f0'
+  },
+  icon: {
+    color: 'white',
+    marginRight: 10,
+  }
 });

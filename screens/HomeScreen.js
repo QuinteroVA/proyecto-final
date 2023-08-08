@@ -1,9 +1,7 @@
-import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
 import Swiper from 'react-native-swiper';
 import sliderJSON from '../assets/data/SliderImg.json';
-import ProductsScreen from './ProductsScreen';
-const width = Dimensions.get('window').width;
 export default function LoginScreen({ navigation }) {
   const [imagenesSLD, setImagenesSLD] = useState(sliderJSON.imagenes || []);
   return (
