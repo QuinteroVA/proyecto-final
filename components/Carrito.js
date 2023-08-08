@@ -53,14 +53,17 @@ export default function Carrito(props) {
             <Text> </Text>
             <Button title="+" onPress={() => aumentar()} /> 
           </View>
-          <View style={styles. btnContenedorBorrar}>
+       
+        </View>
+      </View>
+      
+      <View style={styles. btnContenedorBorrar}>
                 <Button title="Borrar" onPress={borrarProducto} />
                 <Button title="Hacer compra" onPress={hacerCompra} />
             </View>
-        </View>
-      </View>
    
     </View>
+    
   );
 }
 const styles = StyleSheet.create({
@@ -124,8 +127,13 @@ const styles = StyleSheet.create({
     paddingTop: 3,
   },
   btnContenedorBorrar: {
-    justifyContent: "space-between",
-    marginTop: 10,
+    flex:1,
+    buttonContainer: {
+      flexDirection: "row",
+      justifyContent: "space-between",
+      marginTop: 10,
+
+    }
 
 },
 
