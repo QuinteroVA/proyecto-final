@@ -2,11 +2,13 @@
     "users": [
       {
         "username": "Nino",
-        "password": "N123"
+        "password": "N123",
+        "email":"angel@micorreo.com"
       },
       {
         "username": "Cristhian",
-        "password": "C123"
+        "password": "C123",
+        "email":"cristhian@micorreo.com"
       }
     ]
   }

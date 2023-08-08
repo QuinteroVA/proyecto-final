@@ -1,35 +1,14 @@
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  TouchableOpacity,
-  Alert,
-  Button,
-} from "react-native";
+import { View, Text, Image, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import React, { useState } from "react";
+import { Feather } from '@expo/vector-icons';
 export default function Carrito(props) {
-  const [num1, setnum1] = useState(0);
+  const [num1, setnum1] = useState(0)
   function aumentar() {
-    if (num1 < 10) {
-      setnum1(num1 + 1);
-    } else
-      Alert.alert(
-        "Advertencia",
-        "No se permite seleccionar más de 10 productos iguales"
-      );
+    if (num1 < 10) { setnum1(num1 + 1); }
+    else { Alert.alert('Advertencia', 'No se permite seleccionar más de 10 productos iguales') }
   }
   function disminur() {
-    if (num1 > 0) {
-      setnum1(num1 - 1);
-    }
-  }
-  function borrarProducto() {
-    setnum1(0);
-  }
-
-  function hacerCompra() {
-    Alert.alert("Compra realizada", `Has comprado ${num1} productos`);
+    if (num1 > 0) { setnum1(num1 - 1); }
   }
   return (
     <View style={styles.container}>
@@ -46,43 +25,30 @@ export default function Carrito(props) {
           <Text style={styles.description}>{props.datos.descripcion}</Text>
           <Text style={styles.price}>Precio: ${props.datos.precio}</Text>
         </View>
-        <View style={{ alignItems: "center" }}>
+        <View style={{ alignItems: 'center' }}>
           <Text style={styles.items}>{num1}</Text>
           <View style={styles.buttonsContainer}>
-            <Button title="-" onPress={() => disminur()} />
-            <Text> </Text>
-            <Button title="+" onPress={() => aumentar()} /> 
+            <TouchableOpacity style={styles.btn1} onPress={() => disminur()}>
+              <Feather name="minus" size={15} style={styles.icon} />
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.btn1} onPress={() => aumentar()}>
+              <Feather name="plus" size={15} style={styles.icon} />
+            </TouchableOpacity>
           </View>
-       
         </View>
       </View>
-      
-      <View style={styles. btnContenedorBorrar}>
-                <Button title="Borrar" onPress={borrarProducto} />
-                <Button title="Hacer compra" onPress={hacerCompra} />
-            </View>
-   
     </View>
-    
-  );
+  )
 }
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    justifyContent: "space-between",
     paddingHorizontal: 6,
     marginBottom: 15,
-    alignItems: "center",
     backgroundColor: "#ffffff",
     borderRadius: 8,
     elevation: 5,
-  },
-  imageContainer: {
-    alignItems: "center",
-  },
-  infoContainer: {
-    flexDirection: "row",
-    alignItems: "center",
   },
   infoTextContainer: {
     flex: 1,
@@ -101,9 +67,9 @@ const styles = StyleSheet.create({
   items: {
     fontSize: 18,
     borderWidth: 1,
-    borderColor: "#0068f0",
+    borderColor: '#0068f0',
     borderRadius: 5,
-    paddingHorizontal: 19,
+    paddingHorizontal: 20
   },
   imagen: {
     width: 100,
@@ -112,29 +78,32 @@ const styles = StyleSheet.create({
   imageContainer: {
     width: "40%",
     alignItems: "center",
-    padding: 10,
+    paddingVertical: 5,
   },
   infoContainer: {
     width: "60%",
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
-    padding: 10,
   },
   buttonsContainer: {
     flexDirection: "row",
-    marginBottom: 0,
     paddingTop: 3,
   },
-  btnContenedorBorrar: {
-    flex:1,
-    buttonContainer: {
-      flexDirection: "row",
-      justifyContent: "space-between",
-      marginTop: 10,
-
-    }
-
-},
-
+  btn1: {
+    paddingVertical: 5,
+    paddingHorizontal: 6,
+    borderRadius: 8,
+    backgroundColor: '#0068f0',
+    shadowColor: 'gray',
+    elevation: 5,
+    margin: 1.2,
+  },
+  txt2: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 20,
+  },
+  icon: {
+    color: 'white',
+  }
 });
