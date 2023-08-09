@@ -1,19 +1,28 @@
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, Alert,Modal,Image } from 'react-native'
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  TouchableOpacity,
+  Alert,
+  Modal,
+  Image,
+} from "react-native";
 import React, { useEffect, useState } from "react";
-import { MaterialIcons } from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import RopaJSON from "../assets/data/Ropa.json"
-import Targeta from '../components/Targeta';
+import { MaterialIcons } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import RopaJSON from "../assets/data/Ropa.json";
+import Targeta from "../components/Targeta";
 
-import Carrito from '../components/Carrito'
+import Carrito from "../components/Carrito";
 export default function CarritoScreen() {
   const [carrito, setCarrito] = useState([]);
   const [mostrarModal, setMostrarModal] = useState(false);
-
-
-
   const calcularTotal = () => {
-    return carrito.reduce((total, producto) => total + (producto.precio * producto.cantidad), 0);
+    return carrito.reduce(
+      (total, producto) => total + producto.precio * producto.cantidad,
+      0
+    );
   };
   const calcularIVA = () => {
     return calcularTotal() * 0.16;
@@ -26,29 +35,30 @@ export default function CarritoScreen() {
   };
 
   const realizarCompra = () => {
-   
-    mensaje2(); 
-    setCarrito([]); 
-    setMostrarModal(false); 
+    mensaje2();
+    setCarrito([]);
+    setMostrarModal(false);
   };
 
   useEffect(() => {
     if (mostrarModal) {
       const timer = setTimeout(() => {
         setMostrarModal(false);
-      }, 30000); 
+      }, 30000);
 
       return () => clearTimeout(timer);
     }
-  }, [mostrarModal])
+  }, [mostrarModal]);
 
   const eliminarProducto = (producto) => {
-    const nuevoCarrito = carrito.filter(item => item.nombre !== producto.nombre);
+    const nuevoCarrito = carrito.filter(
+      (item) => item.nombre !== producto.nombre
+    );
     setCarrito(nuevoCarrito);
   };
 
   const ajustarCantidad = (producto, cantidad) => {
-    const nuevoCarrito = carrito.map(item => {
+    const nuevoCarrito = carrito.map((item) => {
       if (item.nombre === producto.nombre) {
         return { ...item, cantidad: cantidad };
       }
@@ -57,34 +67,33 @@ export default function CarritoScreen() {
     setCarrito(nuevoCarrito);
   };
 
-
-  const mensaje = () => { Alert.alert('Mensaje', 'Compra cancelada') }
-  const mensaje2 = () => { Alert.alert('Mensaje', 'Compra realizada con éxito') }
+  const mensaje = () => {
+    Alert.alert("Mensaje", "Compra cancelada");
+  };
+  const mensaje2 = () => {
+    Alert.alert("Mensaje", "Compra realizada con éxito");
+  };
   function reiniciar() {
-
     //setdatos({})
-    Alert.alert('Mensaje', 'Compra cancelada', [
-      { text: 'Cancelar' },
+    Alert.alert("Mensaje", "Compra cancelada", [
+      { text: "Cancelar" },
       {
-        text: 'Confirmar',
-        onPress: () => setdatos({})
-      }
-    ])
-
+        text: "Confirmar",
+        onPress: () => setdatos({}),
+      },
+    ]);
   }
 
-  const [datos, setdatos] = useState(RopaJSON.productos)
+  const [datos, setdatos] = useState(RopaJSON.productos);
 
   //const datos = RopaJSON.productos
   return (
     <View style={styles.container}>
-
-<View style={styles.card}>
-         
-        </View>
-      <Text style={[styles.titulo, { color: '#b05e9ac2' }]}>Carrito de Compras</Text>
+      <View style={styles.card}></View>
+      <Text style={[styles.titulo, { color: "#b05e9ac2" }]}>
+        Carrito de Compras
+      </Text>
       <FlatList
-
         data={datos}
         renderItem={({ item }) => (
           <Carrito
@@ -99,15 +108,22 @@ export default function CarritoScreen() {
       <View style={styles.line}></View>
       <View style={styles.lowerSection}>
         <TouchableOpacity style={styles.btn1} onPress={() => setCarrito([])}>
-          <MaterialIcons name="remove-shopping-cart" size={24} style={styles.icon} />
+          <MaterialIcons
+            name="remove-shopping-cart"
+            size={24}
+            style={styles.icon}
+          />
           <Text style={styles.txt2}>Cancelar</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.btn1} onPress={confirmarCompra}>
-          <MaterialCommunityIcons name="basket-check-outline" size={24} style={styles.icon} />
+          <MaterialCommunityIcons
+            name="basket-check-outline"
+            size={24}
+            style={styles.icon}
+          />
           <Text style={styles.txt2}>Comprar</Text>
         </TouchableOpacity>
       </View>
-
 
       <Modal visible={mostrarModal} animationType="slide">
         <View style={styles.modalContainer}>
@@ -126,80 +142,86 @@ export default function CarritoScreen() {
           <View style={styles.resumenContainer}>
             <Text>Total: ${calcularTotal()}</Text>
             <Text>IVA (16%): ${calcularIVA()}</Text>
-            <Text style={styles.totalAPagar}>Total a Pagar: ${calcularTotalAPagar()}</Text>
+            <Text style={styles.totalAPagar}>
+              Total a Pagar: ${calcularTotalAPagar()}
+            </Text>
           </View>
           <View style={styles.botonesContainer}>
-            <TouchableOpacity style={styles.btnConfirmar} onPress={realizarCompra}>
+            <TouchableOpacity
+              style={styles.btnConfirmar}
+              onPress={realizarCompra}
+            >
               <Text style={styles.btnTexto}>Confirmar Compra</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.btnCancelar} onPress={() => setMostrarModal(false)}>
+            <TouchableOpacity
+              style={styles.btnCancelar}
+              onPress={() => setMostrarModal(false)}
+            >
               <Text style={styles.btnTexto}>Cancelar</Text>
             </TouchableOpacity>
           </View>
         </View>
       </Modal>
-
     </View>
-  )
+  );
 }
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 24,
-    alignItems: 'center',
+    alignItems: "center",
     paddingHorizontal: 5,
-    backgroundColor: '#f4f4f4',
+    backgroundColor: "#f4f4f4",
   },
   titulo: {
     fontSize: 34,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 10,
-    textAlign: 'center',
+    textAlign: "center",
   },
   lowerSection: {
     borderRadius: 15,
-    flexDirection: 'row',
-    justifyContent: 'center',
+    flexDirection: "row",
+    justifyContent: "center",
   },
   btn1: {
     margin: 10,
     padding: 10,
     elevation: 5,
     borderRadius: 18,
-    shadowColor: 'gray',
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#0068f0',
+    shadowColor: "gray",
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#0068f0",
   },
   txt2: {
     fontSize: 17,
-    color: 'white',
-    textAlign: 'center',
-    justifyContent: 'space-between',
-    borderEndEndRadius:50,
-
+    color: "white",
+    textAlign: "center",
+    justifyContent: "space-between",
+    borderEndEndRadius: 50,
   },
   line: {
-    width: '96%',
+    width: "96%",
     marginTop: 10,
     borderWidth: 1,
     marginBottom: 10,
-    borderColor: '#0068f0'
+    borderColor: "#0068f0",
   },
   icon: {
-    color: 'white',
+    color: "white",
     marginRight: 10,
   },
   modalContainer: {
     flex: 1,
     padding: 70,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     backgroundColor: "rgba(183, 197, 202, 0.448)",
   },
   modalTitle: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 10,
   },
   itemContainer: {
@@ -209,15 +231,14 @@ const styles = StyleSheet.create({
     marginTop: 10,
     borderTopWidth: 1,
     paddingTop: 10,
-
   },
-  btnTexto:{
+  btnTexto: {
     margin: 10,
     padding: 10,
     elevation: 5,
     borderRadius: 18,
-    shadowColor: '#ffffff',
-    alignItems: 'center',
-    backgroundColor: '#0068f0',
-  }
+    shadowColor: "#ffffff",
+    alignItems: "center",
+    backgroundColor: "#0068f0",
+  },
 });
