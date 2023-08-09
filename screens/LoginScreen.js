@@ -1,29 +1,35 @@
 import { View, Text, TextInput, StyleSheet, Image, TouchableOpacity, Alert, Linking } from 'react-native';
 import React, { useState } from "react";
 import { AntDesign } from '@expo/vector-icons';
-import userJSON from '../assets/data/users.json';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 export default function LoginScreen({ navigation }) {
-  function navegar() { navigation.navigate("Home") }
-  const mensaje = () => { Alert.alert('Mensaje', 'Ingresa Usuario y contraseña') }
-  const mensaje2 = () => { Alert.alert('Mensaje', 'Usuario y/o contraseña incorrectos') }
-  const mensaje3 = () => { Alert.alert('Mensaje', 'Olvidaste la contraseña') }
+  const mensaje = () => { Alert.alert('Mensaje', 'Olvidaste la contraseña') }
   const [usuario, setUsuario] = useState("")
   const [contrasena, setContrasena] = useState("")
-  const [error, setError] = useState("")
-  const Login = () => {
-    const buscarUsuarios= userJSON.users.find(user => user.username === usuario && user.password === contrasena);
+
+  const Login = async () => {
     if (!usuario || !contrasena) {
-      setError(mensaje)
-    } else
-      if (!buscarUsuarios) {
-        setError(mensaje2)
-      } else { setError(""); navigation.navigate('Home') }
-  }
+      Alert.alert('Mensaje', 'Ingresa Usuario y contraseña')
+    } else {
+      try {
+        const existingUsersString = await AsyncStorage.getItem("users");
+        const usuarioExistente = existingUsersString ? JSON.parse(existingUsersString) : { usuarios: [] };
+        const buscarUsuario = usuarioExistente.usuarios.find((user) => user.username === usuario && user.password === contrasena);
+        if (buscarUsuario) {
+          navigation.navigate("Home");
+        } else {
+          Alert.alert('Mensaje', 'Usuario y/o contraseña incorrectos')
+        }
+      } catch (error) {
+        Alert.alert("Error", "Ocurrió un error al intentar iniciar sesión");
+      }
+    }
+  };
   return (
     <View style={styles.container}>
       <View>
         <Text style={styles.txt1}>Iniciar Sesión</Text>
-        <Image source={{ uri: ("https://drive.google.com/uc?export=view&id=1_60IjHQDosiyzTl05YyB5VvxXHgiHKl_")}}
+        <Image source={{ uri: ("https://drive.google.com/uc?export=view&id=1_60IjHQDosiyzTl05YyB5VvxXHgiHKl_") }}
           style={styles.img} />
         <Text style={styles.txt1}>Store Dress</Text>
       </View>
@@ -40,12 +46,11 @@ export default function LoginScreen({ navigation }) {
           onChangeText={(texto) => setContrasena(texto)}
           value={contrasena}
         />
-         {error ? <Text style={styles.errorText}>{error}</Text> : null}
         <TouchableOpacity style={styles.btn1} onPress={Login}>
           <AntDesign name="login" size={24} style={styles.icon} />
           <Text style={styles.txt2}>Iniciar Sesión</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={mensaje3}>
+        <TouchableOpacity onPress={mensaje}>
           <Text style={styles.txtPass}>¿Olvidaste tu contraseña?</Text>
         </TouchableOpacity>
       </View>
@@ -135,12 +140,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 40,
   },
-  line:{
-    borderWidth:1,
-    width:'70%',
-    marginBottom:10,
-    marginTop:10,
-    borderColor:'#0068f0'
+  line: {
+    borderWidth: 1,
+    width: '70%',
+    marginBottom: 10,
+    marginTop: 10,
+    borderColor: '#0068f0'
   },
   socialIcon: {
     height: 40,
