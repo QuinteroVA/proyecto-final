@@ -7,14 +7,44 @@ import {
   Alert,
   Button,
 } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Targeta(props) {
-  const mensaje = () => {
-    Alert.alert("Producto", "Se Agregado  el producto")}
+  const [nombre, setNombre] = useState("");
+  const [descripcion, setDescripcion] = useState("");
+  const [precio, setPrecio] = useState("");
+  const [url, setUrl] = useState("");
+  const [carrito, setCarrito] = useState([]);
 
+  const cantidadMaxima = 5;
 
-  //console.log(props.datos.nombre);
+  useEffect(() => {
+    const totalCantidadProductos = carrito.reduce(
+      (total, producto) => total + producto.cantidad,
+      0
+    );
+    if (totalCantidadProductos > cantidadMaxima) {
+      Alert.alert(
+        "Error",
+        `No puedes agregar más de ${cantidadMaxima} productos.`
+      );
+    }
+  }, [carrito]);
+
+  function agregarAlCarrito() {
+    const nuevoProducto = {
+      nombre: props.datos.nombre,
+      descripcion: props.datos.descripcion,
+      precio: props.datos.precio,
+      url: props.datos.imagen,
+      cantidad: 1,
+    };
+    setCarrito([...carrito, nuevoProducto]);
+  }
+
+  // const mensaje = () => { Alert.alert("Producto", "Se Agregado  el producto")}
+
+  console.log(props);
   return (
     <View style={styles.container}>
       <TouchableOpacity>
@@ -28,21 +58,22 @@ export default function Targeta(props) {
 
         <View>
           <Text style={styles.titulo}>{props.datos.nombre} </Text>
+
           <Text style={styles.description}>{props.datos.descripcion}</Text>
 
           <Text style={styles.precio}>Precio:${props.datos.precio}</Text>
           <View>
-          <Button  title="Agregar" onPress={mensaje} />
+            <Button title="Agregar" onPress={agregarAlCarrito} />
           </View>
+          <Text></Text>
+          <Text></Text>
+          <Text></Text>
+          <Text></Text>
+          <Text></Text>
+          <Text></Text>
+          <Text></Text>
         </View>
-        <Text></Text>
-        <Text></Text>
-        <Text></Text>
-        <Text></Text>
-        <Text></Text>
-        <Text></Text>
       </TouchableOpacity>
-     
     </View>
   );
 }
@@ -89,6 +120,6 @@ const styles = StyleSheet.create({
   },
   btn: {
     textAlign: "center",
-    justifyContent:"center"
+    justifyContent: "center",
   },
 });
