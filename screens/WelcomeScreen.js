@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, navigation } from 'react-native'
+import { View, StyleSheet, } from 'react-native'
 import React from 'react'
 import Welcome from '../components/Welcome'
 export default function WelcomeScreen({navigation}) {
