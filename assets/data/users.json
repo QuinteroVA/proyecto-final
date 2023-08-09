@@ -1,15 +1,7 @@
 {
-    "users": [
-      {
-        "username": "Nino",
-        "password": "N123",
-        "email":"angel@micorreo.com"
-      },
-      {
-        "username": "Cristhian",
-        "password": "C123",
-        "email":"cristhian@micorreo.com"
-      }
+  "usuarios":
+    [
+      {"username": "Nino","password": "N123","edad":20,"email":"angel@micorreo.com"},
+      {"username": "Cristhian","password": "C123","edad":20,"email":"cristhian@micorreo.com"}
     ]
-  }
-  
+}
