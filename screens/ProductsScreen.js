@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, FlatList } from "react-native";
-import React, { useState } from "react";
+
 import RopaJSON from "../assets/data/Ropa.json";
 import Targeta from "../components/Targeta";
 export default function ProductsScreen() {

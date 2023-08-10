@@ -1,3 +1,6 @@
+import { useNavigation } from '@react-navigation/native';
+
+
 import {
   View,
   Text,
@@ -16,6 +19,7 @@ import Targeta from "../components/Targeta";
 
 import Carrito from "../components/Carrito";
 export default function CarritoScreen() {
+  const navigation = useNavigation();
   const [carrito, setCarrito] = useState([]);
   const [mostrarModal, setMostrarModal] = useState(false);
   const calcularTotal = () => {
@@ -85,6 +89,7 @@ export default function CarritoScreen() {
   }
 
   const [datos, setdatos] = useState(RopaJSON.productos);
+  //cargar los datos del carrito que se guarde en datos 
 
   //const datos = RopaJSON.productos
   return (
