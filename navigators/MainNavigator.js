@@ -16,7 +16,7 @@ const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
 function MyTabs() {
     return (
-        <Tab.Navigator>
+        <Tab.Navigator initialRouteName="ProductsScreen">
             <Tab.Screen name="Inicio" component={HomeScreen} options={{
                 tabBarIcon: () => (
                     <Feather name="home" size={30} color={'#040b04fd'} />)
