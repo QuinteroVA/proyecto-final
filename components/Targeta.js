@@ -1,41 +1,113 @@
-import { View, Text, Image, StyleSheet, Alert, Button, } from "react-native";
-import React from "react";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  Alert,
+  Button,
+} from "react-native";
+import React, { useEffect, useState } from "react";
+import * as FileSystem from 'expo-file-system'
+
 export default function Targeta(props) {
-  //const mensaje = () => { Alert.alert("Producto", "Se Agregado  el producto")}
-    props.onSelect(props.datos); 
-    const agregarCarrito = async (product) => {
-      try {
-        const cartItemsString = await AsyncStorage.getItem("cart");
-        const cartItems = cartItemsString ? JSON.parse(cartItemsString) : [];
-        cartItems.push(product);
-        await AsyncStorage.setItem("cart", JSON.stringify(cartItems));
-        Alert.alert("Producto Agregado", "Se ha agregado el producto al carrito");
-      } catch (error) {
-        console.error("Error al agregar producto al carrito", error);
-      }
+
+  const [nombre, setNombre] = useState("");
+  const [descripcion, setDescripcion] = useState("");
+  const [precio, setPrecio] = useState("");
+  const [url, setUrl] = useState("");
+  const [carrito, setCarrito] = useState([]);
+
+
+
+
+  const cantidadMaxima = 5;
+
+  useEffect(() => {
+    const totalCantidadProductos = carrito.reduce(
+      (total, producto) => total + producto.cantidad,
+      0
+    );
+    if (totalCantidadProductos > cantidadMaxima) {
+      Alert.alert(
+        "Error",
+        `No puedes agregar más de ${cantidadMaxima} productos.`
+      );
+    }
+    // console.log(carrito)
+  }, [carrito]);
+
+
+  function agregarAlCarrito(titulo, precio) {
+    const nuevoProducto = {
+      nombre: props.datos.nombre,
+      descripcion: props.datos.descripcion,
+      precio: props.datos.precio,
+      url: props.datos.imagen,
+      cantidad: 1,
+
     };
+
+
+
+    const nuevoCarrito = [...carrito, nuevoProducto];
+
+    // Actualiza el estado del carrito con la nueva copia
+    setCarrito(nuevoCarrito);
+
+    // Guarda el carrito actualizado en el almacenamiento
+    guardarProducto(nuevoCarrito);
+  }
+
+
+  console.log(carrito)
+
+  const guardarProducto = async (productos) => {
+    try {
+      const archivo = `${FileSystem.documentDirectory}Productos.json`;
+
+      await FileSystem.writeAsStringAsync(archivo, JSON.stringify(productos), {});
+
+      console.log('datos guardados');
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
+  // const mensaje = () => { Alert.alert("Producto", "Se Agregado  el producto")}
+
+  // console.log(props);
   return (
     <View style={styles.container}>
       <View>
         <View style={styles.card}>
-          <Image source={{ uri: props.datos.imagen }} style={styles.imagen} resizeMode="contain"/>
+          <Image source={{ uri: props.datos.imagen }} style={styles.imagen} resizeMode="contain" />
         </View>
+        <TouchableOpacity>
+          <View>
+            <Text style={styles.titulo}>{props.datos.nombre} </Text>
 
-        <View>
-          <Text style={styles.titulo}>{props.datos.nombre} </Text>
-          <Text style={styles.description}>{props.datos.descripcion}</Text>
-          <Text style={styles.precio}>Precio:${props.datos.precio}</Text>
-        </View>
-        <View>
-          <Button  title="Agregar" onPress={() => agregarCarrito(props.datos)} />
-        </View> 
-
+            <Text style={styles.description}>{props.datos.descripcion}</Text>
+            <Text style={styles.precio}>Precio:${props.datos.precio}</Text>
+            <View>
+              <Button title="Agregar" onPress={() => agregarAlCarrito(props.datos.nombre, props.datos.precio)} />
+            </View>
+            <Text></Text>
+            <Text></Text>
+            <Text></Text>
+            <Text></Text>
+            <Text></Text>
+            <Text></Text>
+            <Text></Text>
+          </View>
+        </TouchableOpacity>
       </View>
-     
     </View>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -79,6 +151,6 @@ const styles = StyleSheet.create({
   },
   btn: {
     textAlign: "center",
-    justifyContent:"center"
+    justifyContent: "center",
   },
 });
