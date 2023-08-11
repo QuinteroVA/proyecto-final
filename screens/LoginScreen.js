@@ -4,19 +4,21 @@ import { AntDesign } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 export default function LoginScreen({ navigation }) {
   const mensaje = () => { Alert.alert('Mensaje', 'Olvidaste la contraseña') }
-  const [usuario, setUsuario] = useState("")
-  const [contrasena, setContrasena] = useState("")
-
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const Login = async () => {
-    if (!usuario || !contrasena) {
+    if (!username || !password) {
       Alert.alert('Mensaje', 'Ingresa Usuario y contraseña')
     } else {
       try {
         const existingUsersString = await AsyncStorage.getItem("users");
         const usuarioExistente = existingUsersString ? JSON.parse(existingUsersString) : { usuarios: [] };
-        const buscarUsuario = usuarioExistente.usuarios.find((user) => user.username === usuario && user.password === contrasena);
+        const buscarUsuario = usuarioExistente.usuarios.find((user) => user.username === username && user.password === password);
         if (buscarUsuario) {
+          await AsyncStorage.setItem("loggedUsername", buscarUsuario.username);
+          await AsyncStorage.setItem("loggedEmail", buscarUsuario.email);
           navigation.navigate("Home");
+
         } else {
           Alert.alert('Mensaje', 'Usuario y/o contraseña incorrectos')
         }
@@ -37,14 +39,14 @@ export default function LoginScreen({ navigation }) {
         <TextInput style={styles.input}
           placeholder="E-mail/Usuario"
           keyboardType='email-address'
-          onChangeText={(texto) => setUsuario(texto)}
-          value={usuario}
+          onChangeText={(texto) => setUsername(texto)}
+          value={username}
         />
         <TextInput style={styles.input}
           placeholder="Contraseña"
           secureTextEntry
-          onChangeText={(texto) => setContrasena(texto)}
-          value={contrasena}
+          onChangeText={(texto) => setPassword(texto)}
+          value={password}
         />
         <TouchableOpacity style={styles.btn1} onPress={Login}>
           <AntDesign name="login" size={24} style={styles.icon} />

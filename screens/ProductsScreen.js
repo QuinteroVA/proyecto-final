@@ -1,20 +1,22 @@
-import { View, Text,StyleSheet, FlatList } from 'react-native'
-import React from 'react'
+import { View, Text, StyleSheet, FlatList } from 'react-native'
+import React, { useState } from 'react';
 import RopaJSON from "../assets/data/Ropa.json"
 import Targeta from '../components/Targeta'
-export default function ProductsScreen() {
+export default function ProductsScreen({navigation}) {
+  const [seleccionado, setSeleccionado] = useState([]);
+  const seleccionar = (product) => {
+    setSeleccionado([...seleccionado, product]);
+  };
   return (
     <View>
-       <Text></Text>
-       <Text></Text>
       <Text></Text>
-      <Text style={[styles.titulo,{color:'#b05e9ac2'}]}>MODA</Text>
+      <Text style={[styles.titulo, { color: '#b05e9ac2' }]}>MODA</Text>
       <FlatList
-      data={RopaJSON.productos}
-       renderItem={({item})  =>(
-              <Targeta datos={item}/>
-       )}  
-       numColumns={2}    
+        data={RopaJSON.productos}
+        renderItem={({ item }) => (
+          <Targeta datos={item} onSelect={seleccionar}/>
+        )}
+        numColumns={2}
       />
     </View>
   )

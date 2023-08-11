@@ -1,16 +1,32 @@
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, Alert } from 'react-native'
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
 import { MaterialIcons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import RopaJSON from "../assets/data/Ropa.json"
+//import RopaJSON from "../assets/data/Ropa.json"
 import Carrito from '../components/Carrito'
-export default function ProductsScreen() {
-  const [num1, setnum1] = useState(0)
-  const mensaje = () => { Alert.alert('Mensaje', 'Compra cancelada') }
-  const mensaje2 = () => { Alert.alert('Mensaje', 'Compra realizada con éxito') }
+import AsyncStorage from '@react-native-async-storage/async-storage';
+export default function CarritoScreen() {
+  const [cartItems, setCartItems] = useState([]);
+  const [num1, setnum1] = useState(0);
+  const mensaje = () => { Alert.alert('Mensaje', 'Compra cancelada')};
+  const mensaje2 = () => { Alert.alert('Mensaje', 'Compra realizada con éxito')};
+  
+  useEffect(() => {
+    buscarProducto();
+  }, []);
+  const buscarProducto = async () => {
+    try {
+      const cartItemsString = await AsyncStorage.getItem("cart");
+      const items = cartItemsString ? JSON.parse(cartItemsString) : [];
+      setCartItems(items);
+    } catch (error) {
+      console.error("Error fetching cart items:", error);
+    }
+  };
+  
+  
   function reiniciar() {
 
-    //setdatos({})
     Alert.alert('Mensaje', 'Compra cancelada', [
       { text: 'Cancelar' },
       {
@@ -20,16 +36,12 @@ export default function ProductsScreen() {
     ])
 
   }
-
-  const [datos, setdatos] = useState(RopaJSON.productos)
-
-  //const datos = RopaJSON.productos
   return (
     <View style={styles.container}>
       <Text style={[styles.titulo, { color: '#b05e9ac2' }]}>Carrito de Compras</Text>
       <FlatList
 
-        data={datos}
+        data={cartItems}  
         renderItem={({ item }) => (
           <Carrito datos={item} />
         )}
