@@ -35,9 +35,9 @@ export default function Targeta(props) {
         `No puedes agregar más de ${cantidadMaxima} productos.`
       );
     }
-   // console.log(carrito)
+    // console.log(carrito)
   }, [carrito]);
-    
+
 
   function agregarAlCarrito(titulo, precio) {
     const nuevoProducto = {
@@ -45,72 +45,69 @@ export default function Targeta(props) {
       descripcion: props.datos.descripcion,
       precio: props.datos.precio,
       url: props.datos.imagen,
-      cantidad: 1, 
-  
+      cantidad: 1,
+
     };
-  
-  
+
+
 
     const nuevoCarrito = [...carrito, nuevoProducto];
 
     // Actualiza el estado del carrito con la nueva copia
     setCarrito(nuevoCarrito);
-  
+
     // Guarda el carrito actualizado en el almacenamiento
     guardarProducto(nuevoCarrito);
   }
 
 
-    console.log(carrito)
- 
-const guardarProducto = async (productos) => {
-  try {
-    const archivo = `${FileSystem.documentDirectory}Productos.json`;
+  console.log(carrito)
 
-    await FileSystem.writeAsStringAsync(archivo, JSON.stringify(productos), {});
+  const guardarProducto = async (productos) => {
+    try {
+      const archivo = `${FileSystem.documentDirectory}Productos.json`;
 
-    console.log('datos guardados');
-  } catch (error) {
-    console.log(error);
+      await FileSystem.writeAsStringAsync(archivo, JSON.stringify(productos), {});
+
+      console.log('datos guardados');
+    } catch (error) {
+      console.log(error);
+    }
   }
-}
-  
+
 
   // const mensaje = () => { Alert.alert("Producto", "Se Agregado  el producto")}
 
- // console.log(props);
+  // console.log(props);
   return (
     <View style={styles.container}>
-      <TouchableOpacity>
+      <View>
         <View style={styles.card}>
-          <Image
-            source={{ uri: props.datos.imagen }}
-            style={styles.imagen}
-            resizeMode="contain"
-          />
+          <Image source={{ uri: props.datos.imagen }} style={styles.imagen} resizeMode="contain" />
         </View>
-
-        <View>
-          <Text style={styles.titulo}>{props.datos.nombre} </Text>
-
-          <Text style={styles.description}>{props.datos.descripcion}</Text>
-
-          <Text style={styles.precio}>Precio:${props.datos.precio}</Text>
+        <TouchableOpacity>
           <View>
-            <Button title="Agregar" onPress={()=> agregarAlCarrito(props.datos.nombre,props.datos.precio)} />
+            <Text style={styles.titulo}>{props.datos.nombre} </Text>
+
+            <Text style={styles.description}>{props.datos.descripcion}</Text>
+            <Text style={styles.precio}>Precio:${props.datos.precio}</Text>
+            <View>
+              <Button title="Agregar" onPress={() => agregarAlCarrito(props.datos.nombre, props.datos.precio)} />
+            </View>
+            <Text></Text>
+            <Text></Text>
+            <Text></Text>
+            <Text></Text>
+            <Text></Text>
+            <Text></Text>
+            <Text></Text>
           </View>
-          <Text></Text>
-          <Text></Text>
-          <Text></Text>
-          <Text></Text>
-          <Text></Text>
-          <Text></Text>
-          <Text></Text>
-        </View>
-      </TouchableOpacity>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
